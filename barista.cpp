@@ -11,6 +11,7 @@
 #include "barista.h"
 #include <map>
 using std::map;
+using std::vector;
 
 //Begin OrangeJuiceOrderList Class Implementation
 
@@ -59,7 +60,7 @@ BubbleTeaList::BubbleTeaList (const BubbleTeaList & rhs)
 }
 
 //Assignment Operator
-BubbleTeaList & BubbleTeaList::operator= /(const BubbleTeaList &rhs)
+BubbleTeaList & BubbleTeaList::operator= (const BubbleTeaList &rhs)
 {
     if (this != rhs)
     {
