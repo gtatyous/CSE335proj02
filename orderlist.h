@@ -38,7 +38,7 @@ public:
     OrangeJuiceOrderList()=default;
     
     //Initialize m_Drinks_list using the base class constructor
-    virtual OrangeJuiceOrderList(vector<OrangeJuice*> &OJ_OL) {m_OrderList_vector = OJ_OL}
+    virtual OrangeJuiceOrderList(vector<OrangeJuice*> &OJ_OL): m_OrderList_vector(OJ_OL){}
     
     //Implements delete OJ and BT objects
     virtual ~OrangeJuiceOrderList();
@@ -50,7 +50,7 @@ public:
     OrangeJuiceOrderList & operator= (const OrangeJuiceOrderList &);
     
     //Virtual accessor function
-    virtual vector<OrangeJuice*> get_OrderList() {return m_OrderList_vector}
+    virtual vector<OrangeJuice*> get_OrderList() {return m_OrderList_vector;}
 };
 
 
