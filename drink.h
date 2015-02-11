@@ -9,24 +9,21 @@
 */
 
 
-
-#include <string>
-#include <iostream>
-using std::string;
-using std::cout;
-using std::endl;
-
 #ifndef DRINK_H
 #define DRINK_H
+
+#include <string>
+using std::string;
 
 
 class Drink {
     protected:
         int drink_size;
         string customer_name;
-    public: 
+    public:
+        Drink (string name, int size) {customer_name = name; drink_size=size;}
         virtual void confirmOrder() const = 0;
-        virtual ~Drink() {};
+        virtual ~Drink()=default;
 };
 
 
@@ -40,7 +37,7 @@ class BubbleTea : public Drink {
         BubbleTea (const BubbleTea &);
         BubbleTea & operator= (const BubbleTea &);
         virtual void confirmOrder() const;
-        ~BubbleTea() {}; 
+        ~BubbleTea()=default;
 };
 
 
@@ -53,6 +50,6 @@ class OrangeJuice : public Drink {
         OrangeJuice(const OrangeJuice &);
         OrangeJuice & operator= (const OrangeJuice &);
         virtual void confirmOrder () const;
-        ~OrangeJuice() {};
+        ~OrangeJuice()=default;
 };
 #endif
