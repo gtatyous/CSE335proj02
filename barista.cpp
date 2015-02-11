@@ -30,7 +30,7 @@ OrangeJuiceOrderList::OrangeJuiceOrderList (const OrangeJuiceOrderList & rhs)
 }
 
 //Assignment Operator
-OrangeJuiceOrderList & OrangeJuiceOrderList::operator= /(const OrangeJuiceOrderList &rhs)
+OrangeJuiceOrderList & OrangeJuiceOrderList::operator= (const OrangeJuiceOrderList &rhs)
 {
     if (this != rhs)
     {
