@@ -6,7 +6,3 @@ CXX = g++
 
 $(EXE) : $(OBJECTS)
 	$(CXX) &^ -o $@
-
-
-
-

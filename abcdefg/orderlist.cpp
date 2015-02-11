@@ -1,26 +1,16 @@
-/*
- * Team: Ian Bacus and Yousef Gtat
- * CSE335
- * Project02
- * Date: 02/16/2015
- *
- *
- *
- */
 
-#ifndef BARISTA_H_
-#define BARISTA_H_
-
-#include "barista.h"
-#include "drink.h"
-#include <vector>
 using std::vector;
 
 
 //Abstract factory class
 class OrderList
 {
+protected:                        //should it be private?
+    vector<Drink*> m_Order_List; // follow the naming standards
 public:
+    //Base class initialization constructor
+    OrderList (vector<Drink*> & OL): m_Order_List = OL {}
+    
     //Delet the Drink objects inside m_Drinks_list
     virtual ~OrderList();
     
@@ -32,14 +22,12 @@ public:
 
 class OrangeJuiceOrderList : public OrderList
 {
-private:
-    vector<OrangeJuice*> m_OrderList_vector;
 public:
     //In case nothing was passed
     OrangeJuiceOrderList()=default;
     
     //Initialize m_Drinks_list using the base class constructor
-    virtual OrangeJuiceOrderList(vector<OrangeJuice*> &OJ_OL): m_OrderList_vector(OJ_OL){}
+    virtual OrangeJuiceOrderList(vector<OrangeJuice*> &orange_juice_vector);
     
     //Implements delete OJ and BT objects
     virtual ~OrangeJuiceOrderList();
@@ -51,21 +39,19 @@ public:
     OrangeJuiceOrderList & operator= (const OrangeJuiceOrderList &);
     
     //Virtual accessor function
-    virtual vector<OrangeJuice*> get_OrderList() {return m_OrderList_vector;}
+    virtual vector<OrangeJuice*> get_OrderList() {return m_Order_List}
 };
 
 
 
 class BubbleTeaList : public OrderList
 {
-private:
-    vector<BubbleTea*> m_OrderList_vector;
 public:
     //In case nothing was passed
     BubbleTeaList()=default;
     
     //Initialize m_Drinks_list using the base class constructor
-    virtual BubbleTeaList(vector<BubbleTea*> &BT_OL): m_OrderList_vector(BT_OL) {}
+    virtual BubbleTeaList(vector<Drink*> &BT_OL): OrderList(BT_OL) {}
     
     //Implements delete OJ and BT
     virtual ~BubbleTeaList();
@@ -77,7 +63,5 @@ public:
     BubbleTeaList & operator= (const BubbleTeaList &);
     
     //Virtual accessor function
-    virtual vector<BubbleTea*> get_OrderList() {return m_OrderList_vector;}
+    virtual vector<Drink*> get_OrderList() {return m_Order_List}
 };
-
-#endif
