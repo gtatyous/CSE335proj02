@@ -72,19 +72,63 @@ BubbleTeaList & BubbleTeaList::operator= /(const BubbleTeaList &rhs)
 
 
 //Begin Barista Class Implementation
-
+//////////////////////// NEW SEC
 //Deliver Drinks by name
-void CoolBarista::deliverDrinks(OrderList &OL) const
+
+
+void Barista::deliverDrinks(OrderList &order_list_factory) const
 {
-    
+	vector<Drink*> order_list_vector = orderfactory.getVector();
+	display(order_list_vector);
 }
 
-//Deliver Drinks by drink size
-void NewbieBarista::deliverDrinks(OrderList &OL) const
-{
 
+
+void NewbieBarista::display(vector<Drink*> &order_list_vector) const
+{
+	std::map <std::string, vector< Drink* >  > sortmap;
+	for(auto it = order_list_vector.begin() ; it != order_list_vector.end(); ++it)
+	{
+		//create an entry into the sorting map based on the sorting type
+		sortmap[(*it).get_size()].push_back(*it);
+
+	}
+
+	//loop for printing objects. key is the size of the drink, value is a vector of drinks
+	for(auto kitr = sortmap.begin(); kitr != sortmap.end(); kitr++)
+	{
+		cout << "I have " << (kitr->second).size() << "drinks of size " << *kitr;
+		for( auto kvitr = (kitr->second).begin(); kvitr != (kitr->second).end(); kvitr++ )
+		{
+			(*kvitr).confirmOrder();
+		}
+	}
 }
 
+
+void NewbieBarista::display(vector<Drink*> &order_list_vector) const
+{
+	//this algorithm bins together drinks from an orderlist by their size
+
+	std::map <int, vector< Drink* >  > sortmap;
+	for(auto it = order_list_vector.begin() ; it != order_list_vector.end(); ++it)
+	{
+		//create an entry into the sorting map based on the sorting type
+		sortmap[(*it).get_size()].push_back(*it);
+
+	}
+
+	//loop for printing objects. key is the size of the drink, value is a vector of drinks
+	for(auto kitr = sortmap.begin(); kitr != sortmap.end(); kitr++)
+	{
+		cout << "I have " << (kitr->second).size() << "drinks of size " << *kitr;
+		for( auto kvitr = (kitr->second).begin(); kvitr != (kitr->second).end(); kvitr++ )
+		{
+			(*kvitr).confirmOrder();
+		}
+	}
+
+}
 
 
 
