@@ -30,11 +30,9 @@ public:
     //virtual int get_size(int)=0;
     
         //Get the customer name
-    virtual string get_name(int index) {return m_OrderList_vector[index]->get_name();}
-
+    virtual string get_name(int index) const=0;
     //Get the drink size
-    virtual int get_size(int index) {return m_OrderList_vector[index]->get_size();}
-    
+    virtual int get_size(int index) const =0;
     virtual Drink* get_element(int);
     
 };
@@ -64,7 +62,11 @@ public:
     //Virtual accessor function
     virtual vector<OrangeJuice*> get_OrderList() {return m_OrderList_vector;}
     
+    virtual string get_name(int index) const {return m_OrderList_vector[index]->get_name();}
 
+    //Get the drink size
+    virtual int get_size(int index) const  {return m_OrderList_vector[index]->get_size();}
+    
 
     virtual OrangeJuice* get_element(int) {return m_OrderList_vector[index]}
 
@@ -97,6 +99,11 @@ public:
     
     //Get the customer name
   //  virtual string get_name(int index) {return m_OrderList_vector[index]->customer_name;}
+    
+        virtual string get_name(int index) const {return m_OrderList_vector[index]->get_name();}
+
+    //Get the drink size
+    virtual int get_size(int index) const  {return m_OrderList_vector[index]->get_size();}
     
     //Get the drink size
   //  virtual int get_size(int index) {return m_OrderList_vector[index]->drink_size;}
