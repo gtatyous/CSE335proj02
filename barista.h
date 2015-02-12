@@ -17,7 +17,6 @@
 class Barista
 {
 	public:
-        Barista()=default;
 		virtual ~Barista()=default;
 		virtual void deliverDrinks(OrderList &)=0;
 };

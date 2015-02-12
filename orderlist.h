@@ -23,9 +23,11 @@ public:
     //Delet the Drink objects inside m_Drinks_list
     virtual ~OrderList();
     
-    //GET ELEMENT FUNCTION
-    //GET NAME
-    //GET SIZE
+    //Get the customer name
+    virtual string get_name(int)=0;
+    
+    //Get the drink size
+    virtual int get_size(int)=0;
 };
 
 
@@ -39,7 +41,7 @@ public:
     OrangeJuiceOrderList()=default;
     
     //Initialize m_Drinks_list using the base class constructor
-    virtual OrangeJuiceOrderList(vector<OrangeJuice*> &OJ_OL): m_OrderList_vector(OJ_OL){}
+    OrangeJuiceOrderList(vector<OrangeJuice*> &OJ_OL) {m_OrderList_vector=OJ_OL;}
     
     //Implements delete OJ and BT objects
     virtual ~OrangeJuiceOrderList();
@@ -51,7 +53,14 @@ public:
     OrangeJuiceOrderList & operator= (const OrangeJuiceOrderList &);
     
     //Virtual accessor function
-    virtual vector<OrangeJuice*> get_OrderList() {return m_OrderList_vector;}
+    vector<OrangeJuice*> get_OrderList() {return m_OrderList_vector;}
+    
+    //Get the customer name
+    virtual string get_name(int index) {return m_OrderList_vector[index]->customer_name;}
+
+    //Get the drink size
+    virtual int get_size(int index) {return m_OrderList_vector[index]->drink_size;}
+
 };
 
 
@@ -65,7 +74,7 @@ public:
     BubbleTeaList()=default;
     
     //Initialize m_Drinks_list using the base class constructor
-    virtual BubbleTeaList(vector<BubbleTea*> &BT_OL): m_OrderList_vector(BT_OL) {}
+    BubbleTeaList(vector<BubbleTea*> &BT_OL) {m_OrderList_vector=BT_OL;}
     
     //Implements delete OJ and BT
     virtual ~BubbleTeaList();
@@ -78,6 +87,12 @@ public:
     
     //Virtual accessor function
     virtual vector<BubbleTea*> get_OrderList() {return m_OrderList_vector;}
+    
+    //Get the customer name
+    virtual string get_name(int index) {return m_OrderList_vector[index]->customer_name;}
+    
+    //Get the drink size
+    virtual int get_size(int index) {return m_OrderList_vector[index]->drink_size;}
 };
 
 #endif
