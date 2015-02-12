@@ -24,6 +24,8 @@ class Drink {
         Drink (string name, int size) {customer_name = name; drink_size=size;}
         virtual void confirmOrder() const = 0;
         virtual ~Drink()=default;
+        virtual int get_size(){return drink_size;}
+        virtual string get_name(){return customer_name;}
 };
 
 
