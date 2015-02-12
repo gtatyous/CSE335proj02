@@ -18,16 +18,32 @@ using std::map;
 //Deliver Drinks by name
 void Barista::deliverDrinks(OrderList &order_list_factory) const
 {
-	vector<Drink*> order_list_vector = orderfactory.getVector();
-	display(order_list_vector);
+//	vector<Drink*> order_list_vector = orderfactory.getVector();
+//	display(order_list_vector);
+	std::map <std::string, vector< Drink* >  > sortmap;//this should be able to hold OJ objects or BT objects
+	while(order_list_factory.get_element(index) != nullptr) //perhaps test against size
+	{
+		//create an entry into the sorting map based on the sorting type
+		sortmap[order_list_factory.get_size(index)].push_back(order_list_factory.get_element(index));
+	}
+
+	//loop for printing objects. key is the size of the drink, value is a vector of drinks
+	for(auto kitr = sortmap.begin(); kitr != sortmap.end(); kitr++)
+	{
+		cout << "I have " << (kitr->second).size() << "drinks of size " << *kitr;
+		for( auto kvitr = (kitr->second).begin(); kvitr != (kitr->second).end(); kvitr++ )
+		{
+			(*kvitr).confirmOrder();
+		}
+	}
 }
 
 
-
-void NewbieBarista::display(vector<Drink*> &order_list_vector) const
+/*
+void NewbieBarista::display() const
 {
 	std::map <std::string, vector< Drink* >  > sortmap;
-	for(auto it = order_list_vector.begin() ; it != order_list_vector.end(); ++it)
+	while(data != nullptr) //perhaps test against size
 	{
 		//create an entry into the sorting map based on the sorting type
 		sortmap[(*it).get_size()].push_back(*it);
@@ -45,17 +61,17 @@ void NewbieBarista::display(vector<Drink*> &order_list_vector) const
 	}
 }
 
+*/
 
-void NewbieBarista::display(vector<Drink*> &order_list_vector) const
+void CoolBarista::deliverDrinks(OrderList &order_list_factory) const
 {
-	//this algorithm bins together drinks from an orderlist by their size
-
-	std::map <int, vector< Drink* >  > sortmap;
-	for(auto it = order_list_vector.begin() ; it != order_list_vector.end(); ++it)
+//	vector<Drink*> order_list_vector = orderfactory.getVector();
+//	display(order_list_vector);
+	std::map <std::string, vector< Drink* >  > sortmap;//this should be able to hold OJ objects or BT objects
+	while(order_list_factory.get_element(index) != nullptr) //perhaps test against size
 	{
 		//create an entry into the sorting map based on the sorting type
-		sortmap[(*it).get_size()].push_back(*it);
-
+		sortmap[order_list_factory.get_name(index)].push_back(order_list_factory.get_element(index));
 	}
 
 	//loop for printing objects. key is the size of the drink, value is a vector of drinks
@@ -67,5 +83,4 @@ void NewbieBarista::display(vector<Drink*> &order_list_vector) const
 			(*kvitr).confirmOrder();
 		}
 	}
-
 }
