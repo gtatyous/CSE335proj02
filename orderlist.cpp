@@ -41,10 +41,6 @@ OrangeJuiceOrderList & OrangeJuiceOrderList::operator= (const OrangeJuiceOrderLi
     return *this;
 }
 
-Drink* OrangeJuiceOrderList::getElement(unsigned int index)
-{
-    return &m_OrderList_vector[index]; //return a bubble tea object, maybe a pointer
-}
 
 
 
@@ -67,10 +63,7 @@ BubbleTeaList::BubbleTeaList (const BubbleTeaList & rhs)
     m_OrderList_vector = rhs.m_OrderList_vector;
 }
 
-Drink* BubbleTeaList::getElement(unsigned int index)
-{
-    return &m_OrderList_vector[index]; //return a bubble tea object, maybe a pointer
-}
+
 
 //Assignment Operator
 BubbleTeaList & BubbleTeaList::operator= (const BubbleTeaList &rhs)
