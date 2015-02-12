@@ -43,7 +43,7 @@ public:
     //Initialize m_Drinks_list using the base class constructor
     OrangeJuiceOrderList(vector<OrangeJuice*> &OJ_OL) {m_OrderList_vector=OJ_OL;}
     
-    //Implements delete OJ and BT objects
+    //Implements delete the OrangeJuice objects
     virtual ~OrangeJuiceOrderList();
     
     //Copy constructor which is needed in the main.cpp
@@ -76,7 +76,7 @@ public:
     //Initialize m_Drinks_list using the base class constructor
     BubbleTeaList(vector<BubbleTea*> &BT_OL) {m_OrderList_vector=BT_OL;}
     
-    //Implements delete OJ and BT
+    //Implements delete BubbleTea object
     virtual ~BubbleTeaList();
     
     //Copy constructor which is needed for the main.cpp

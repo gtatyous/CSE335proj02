@@ -16,19 +16,33 @@
 //Interface and algorithm class
 class Barista
 {
-	public:
-		virtual ~Barista()=default;
-		virtual void deliverDrinks(OrderList &)=0;
+public:
+    //Default destructor
+    virtual ~Barista()=default;
+    
+    //Sorts the OrderList and displays it
+    virtual void deliverDrinks(OrderList &)=0;
 };
 
 
 
 class CoolBarista : public Barista
 {
-	public:
-        CoolBarista()=default;
-        virtual ~CoolBarista()=default;
-		virtual void deliverDrinks(OrderList &) const;
+public:
+    //Default constructor
+    CoolBarista()=default;
+    
+    //Default destructor
+    virtual ~CoolBarista()=default;
+    
+    //Copy constructor which is needed in the main.cpp
+    CoolBarista(const CoolBarista &)=default;
+    
+    //Assignment Operator which is NOT needed in the main.cpp file
+    CoolBarista & operator= (const CoolBarista &)=default;
+    
+    //Sorts the OrderList and displays it
+    virtual void deliverDrinks(OrderList &) const;
 };
 
 
@@ -36,8 +50,19 @@ class CoolBarista : public Barista
 class NewbieBarista : public Barista
 {
 	public:
+        //Default constructor
         NewbieBarista()=default;
+    
+        //Default destructor
         virtual ~CoolBarista()=default;
+    
+        //Copy constructor which is needed in the main.cpp
+        CoolBarista(const CoolBarista &)=default;
+    
+        //Assignment Operator which is NOT needed in the main.cpp file
+        CoolBarista & operator= (const CoolBarista &)=default;
+    
+        //Sorts the OrderList and displays it
 		virtual void deliverDrinks(OrderList &) const;
 };
 
