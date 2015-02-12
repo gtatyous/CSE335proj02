@@ -28,6 +28,9 @@ public:
     
     //Get the drink size
     virtual int get_size(int)=0;
+    
+    virtual Drink* get_element(int);
+    
 };
 
 
@@ -53,13 +56,15 @@ public:
     OrangeJuiceOrderList & operator= (const OrangeJuiceOrderList &);
     
     //Virtual accessor function
-    vector<OrangeJuice*> get_OrderList() {return m_OrderList_vector;}
+    virtual vector<OrangeJuice*> get_OrderList() {return m_OrderList_vector;}
     
     //Get the customer name
     virtual string get_name(int index) {return m_OrderList_vector[index]->customer_name;}
 
     //Get the drink size
     virtual int get_size(int index) {return m_OrderList_vector[index]->drink_size;}
+
+    virtual OrangeJuice* get_element(int) {return m_OrderList_vector[index]}
 
 };
 
@@ -93,6 +98,8 @@ public:
     
     //Get the drink size
     virtual int get_size(int index) {return m_OrderList_vector[index]->drink_size;}
+    virtual BubbleTea* get_element(int) {return m_OrderList_vector[index];}
+
 };
 
 #endif
