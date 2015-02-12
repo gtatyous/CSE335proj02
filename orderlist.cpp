@@ -8,7 +8,7 @@
  *
  */
 
-#include "OrderList.h"
+#include "orderlist.h"
 
 
 //Begin OrangeJuiceOrderList Class Implementation
@@ -44,7 +44,6 @@ OrangeJuiceOrderList & OrangeJuiceOrderList::operator= (const OrangeJuiceOrderLi
 
 
 
-
 //Begin BubbleTeaList Class Implementation
 
 //Destructor
@@ -66,7 +65,7 @@ BubbleTeaList::BubbleTeaList (const BubbleTeaList & rhs)
 
 
 //Assignment Operator
-BubbleTeaList & BubbleTeaList::operator= /(const BubbleTeaList &rhs)
+BubbleTeaList & BubbleTeaList::operator= (const BubbleTeaList &rhs)
 {
     if (this != rhs)
     {

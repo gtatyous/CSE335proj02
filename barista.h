@@ -11,16 +11,13 @@
 #ifndef BARISTA_H_
 #define BARISTA_H_
 
-#include "drink.h"
 #include "orderlist.h"
-#include <vector>
-
 
 //Interface and algorithm class
 class Barista
 {
 	public:
-        Barista()=default; //cons for the base class?
+        Barista()=default;
 		virtual ~Barista()=default;
 		virtual void deliverDrinks(OrderList &)=0;
 };

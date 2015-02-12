@@ -29,7 +29,7 @@ class Drink {
 
 
 class BubbleTea : public Drink {
-    protected:
+    private:
         bool hot;
         int bubble_size;                   
     public:
@@ -43,7 +43,7 @@ class BubbleTea : public Drink {
 
 
 class OrangeJuice : public Drink {
-    protected:
+    private:
         bool pulp;               
     public:
         OrangeJuice(string="Anonymous", int=1, bool=false);

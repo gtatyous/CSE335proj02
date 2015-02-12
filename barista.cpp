@@ -11,21 +11,11 @@
 #include "barista.h"
 #include <map>
 using std::map;
-using std::vector;
-
-//Begin OrangeJuiceOrderList Class Implementation
-
-
-
-
-
-
 
 //Begin Barista Class Implementation
-//////////////////////// NEW SEC
+
+
 //Deliver Drinks by name
-
-
 void Barista::deliverDrinks(OrderList &order_list_factory) const
 {
 	vector<Drink*> order_list_vector = orderfactory.getVector();
@@ -79,64 +69,3 @@ void NewbieBarista::display(vector<Drink*> &order_list_vector) const
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/////////////////////////////////////////////////////////////////
-
-/*
-void CoolBarista::deliverDrinks(OrderList &orderfactory) const
-{
-    map <string, vector< Drink* >  > sortmap;
-    for(auto it = v.begin() ; it != v.end(); ++it)
-    {
-        sortmap[(*it).get_size()].push_back(*it);
-    }
-
-    for(auto kitr = sortmap.begin(); kitr != sortmap.end(); kitr++)
-    {
-	cout << "I have " << (kitr->second).size() << "drinks of size " << *kitr;
-	for( auto kvitr = (kitr->second).begin(); kvitr != (kitr->second).end(); kvitr++ )
-	{
-		(*kvitr).confirmOrder();
-
-	std::map <int, vector< Drink* >  > sortmap;
-	for(auto it = v.begin() ; it != v.end(); ++it)
-	{
-		//create an entry into the sorting map based on the sorting type
-		sortmap[(*it).get_size()].push_back(*it);
-	}
-
-	//loop for printing objects. key is the size of the drink, value is a vector of drinks
-	for(auto kitr = sortmap.begin(); kitr != sortmap.end(); kitr++)
-	{
-		cout << "I have " << (kitr->second).size() << "drinks of size " << *kitr;
-		for( auto kvitr = (kitr->second).begin(); kvitr != (kitr->second).end(); kvitr++ )
-		{
-			(*kvitr).confirmOrder();
-		}
-	}
-
-}
-*/
-
-

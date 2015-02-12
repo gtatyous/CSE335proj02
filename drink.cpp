@@ -48,7 +48,8 @@ BubbleTea::BubbleTea (const BubbleTea &rhs): Drink(rhs.customer_name, rhs.drink_
 //Assignment Operator
 BubbleTea & BubbleTea::operator= (const BubbleTea &rhs)
 {
-    if (this != &rhs) {
+    if (this != &rhs)
+    {
         customer_name = rhs.customer_name;
         drink_size = rhs.drink_size;
         hot = rhs.hot;
@@ -86,7 +87,8 @@ OrangeJuice:: OrangeJuice (const OrangeJuice &rhs): Drink(rhs.customer_name, rhs
 //Assignment Operator
 OrangeJuice & OrangeJuice::operator= (const OrangeJuice &rhs)
 {
-    if (this != &rhs) {
+    if (this != &rhs)
+    {
         customer_name = rhs.customer_name;
         drink_size = rhs.drink_size;
         pulp = rhs.pulp;    

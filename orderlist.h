@@ -8,10 +8,9 @@
  *
  */
 
-#ifndef BARISTA_H_
-#define BARISTA_H_
+#ifndef ORDERLIST_H_
+#define ORDERLIST_H_
 
-#include "barista.h"
 #include "drink.h"
 #include <vector>
 using std::vector;
@@ -24,8 +23,9 @@ public:
     //Delet the Drink objects inside m_Drinks_list
     virtual ~OrderList();
     
-    //pure virtual Accessor function
-    virtual vector<Drink*> get_OrderList()=0;
+    //GET ELEMENT FUNCTION
+    //GET NAME
+    //GET SIZE
 };
 
 
