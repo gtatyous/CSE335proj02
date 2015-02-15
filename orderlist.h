@@ -44,7 +44,7 @@ public:
 	AbstractOrderListFactory()=default;
 	
     //Delete the Drink objects inside m_Drinks_list
-    virtual ~AbstractOrderListFactory();
+    virtual ~AbstractOrderListFactory()=default;
     
     //Get the size of the Order List Vector
     virtual int getOrderListSize() const =0;
