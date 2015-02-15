@@ -5,8 +5,10 @@ CXXFLAGS = -Wall -std=c++11
 CXX = g++
 
 $(EXE) : $(OBJECTS)
-	$(CXX) &^ -o $@
+	$(CXX) $^ -o $@
 
+clean:
+	$(RM) $(EXE) $(OBJECTS)
 
 
 

@@ -33,13 +33,13 @@
 
 
 //////////////////////Begin OrangeJuiceOrderList Class Implementation/////////////////////
-
+/*
 //Assignment Operator (Not Required)
 OrangeJuiceOrderList & OrangeJuiceOrderList::operator= (const OrangeJuiceOrderList &rhs)
 {
     if (this != rhs)
     {
-        m_OrderList_vector = rhs.m_OrderList_vector;
+        m_OrderListVector = rhs.m_OrderListVector;
     }
     return *this;
 }
@@ -58,4 +58,4 @@ BubbleTeaList & BubbleTeaList::operator= (const BubbleTeaList &rhs)
     }
     return *this;
 }
-
+*/

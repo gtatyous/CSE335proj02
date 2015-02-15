@@ -44,7 +44,7 @@ public:
     virtual ~Barista()=default;
     
     //Sorts the OrderList and displays it
-    virtual void deliverDrinks(OrderList &)=0;
+    virtual void deliverDrinks(AbstractOrderListFactory*) const =0;
 };
 
 
@@ -65,7 +65,7 @@ public:
     CoolBarista & operator= (const CoolBarista &)=default;
     
     //Sorts the OrderList and displays it
-    virtual void deliverDrinks(OrderList &) const;
+    virtual void deliverDrinks(AbstractOrderListFactory*) const;
 };
 
 
@@ -77,16 +77,16 @@ class NewbieBarista : public Barista
         NewbieBarista()=default;
     
         //Default destructor
-        virtual ~CoolBarista()=default;
+        virtual ~NewbieBarista()=default;
     
         //Copy constructor which is needed in the main.cpp
-        CoolBarista(const CoolBarista &)=default;
+        NewbieBarista(const NewbieBarista &)=default;
     
         //Assignment Operator which is NOT needed in the main.cpp file
-        CoolBarista & operator= (const CoolBarista &)=default;
+        NewbieBarista & operator= (const NewbieBarista &)=default;
     
         //Sorts the OrderList and displays it
-		virtual void deliverDrinks(OrderList &) const;
+		virtual void deliverDrinks(AbstractOrderListFactory*) const;
 };
 
 #endif

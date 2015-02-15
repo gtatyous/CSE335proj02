@@ -29,23 +29,37 @@
  */
 
 #include "barista.h"
+#include <iostream>
 #include <map>
 using std::map;
-
-void print(vector<Drink*> &vec)
+using std::cout;
+using std::endl;
+/*void print(vector<Drink*> &vec)
 {
 	for (auto ptr : vec)
 	{
 		ptr->confirmOrder();
 	}
-}
+}*/
 
 /////////////////////////////Begin Barista Class Implementation///////////////////////////
 
 // 
-void CoolBarista::deliverDrinks(OrderList &OrderList) const
+void CoolBarista::deliverDrinks(AbstractOrderListFactory *OrderListPtr) const
 {
-// sort into a map
+    map<string, vector<Drink*>> nameOrderListMap;
+    Drink* objectPtr;
+    string name;
+    for (int i=0; i<OrderListPtr->getOrderListSize(); i++)
+    {
+        objectPtr = OrderListPtr->getDrinkObject(i);
+        name = objectPtr->getCustomerName();
+        nameOrderListMap[name].push_back(objectPtr);
+    }
+    
+    // sort map alphabatically
+    
+    cout<< "Cool Barista: Order's up!";
 // print the first statment like how many drinks and names
 // then 
 // print name and its orders using the print function above
@@ -53,8 +67,18 @@ void CoolBarista::deliverDrinks(OrderList &OrderList) const
 
 
 // 
-void NewBieBarista::deliverDrinks(OrderList &order_list_factory) const
+void NewbieBarista::deliverDrinks(AbstractOrderListFactory *OrderListPtr) const
 {
+    map<int, vector<Drink*>> sizeOrderListMap;
+    Drink* objectPtr;
+    int size;
+    for (int i=0; i<OrderListPtr->getOrderListSize(); i++)
+    {
+        objectPtr = OrderListPtr->getDrinkObject(i);
+        size = objectPtr->getDrinkSize();
+        sizeOrderListMap[size].push_back(objectPtr);
+    }
+    cout<< "Cool Barista: Order's up!";
 // sort into a map
 // print the first statment like how many drinks and names
 // then 

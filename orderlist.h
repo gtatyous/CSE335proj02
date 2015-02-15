@@ -41,7 +41,7 @@ class AbstractOrderListFactory
 {
 public:
 	//Default constructor
-	AbstractOrderListFactory()=defalut;
+	AbstractOrderListFactory()=default;
 	
     //Delete the Drink objects inside m_Drinks_list
     virtual ~AbstractOrderListFactory();
@@ -55,7 +55,7 @@ public:
 
 
 
-class OrangeJuiceOrderList : public OrderList
+class OrangeJuiceOrderList : public AbstractOrderListFactory
 {
 private:
     vector<OrangeJuice*> m_OrderListVector;
@@ -64,27 +64,27 @@ public:
     OrangeJuiceOrderList()=default;
     
     //Constructor that shallow copies the order list
-    OrangeJuiceOrderList(vector<OrangeJuice*> &OJ_OL): m_OrderlistVector= OJ_OL {}
+    OrangeJuiceOrderList(vector<OrangeJuice*> &OJ_OL): m_OrderListVector(OJ_OL) {}
     
     //Implements delete OrangeJuice objects
     virtual ~OrangeJuiceOrderList()=default;
     
     //Shallow Copy constructor
-    OrangeJuiceOrderList(const OrangeJuiceOrderList &): m_OrderListVector = rhs.m_OrderListVector {};
+    OrangeJuiceOrderList(const OrangeJuiceOrderList &rhs): m_OrderListVector(rhs.m_OrderListVector){}
     
     //Assignment Operator which is NOT needed in the main.cpp file
-    OrangeJuiceOrderList & operator= (const OrangeJuiceOrderList &);
+    //OrangeJuiceOrderList & operator= (const OrangeJuiceOrderList &);
     
     //Get the size of the Order List Vector
-    virtual int getOrderListSize() const {return m_OrderListVector.size()};
+    virtual int getOrderListSize() const {return m_OrderListVector.size();}
     
     //Get the Drink object in the order list vector at certain index
-    virtual OrangeJuice* getDrinkObject (int index) const {return m_OrderListVector[index]};
+    virtual OrangeJuice* getDrinkObject (int index) const {return m_OrderListVector[index];}
 };
 
 
 
-class BubbleTeaList : public OrderList
+class BubbleTeaList : public AbstractOrderListFactory
 {
 private:
     vector<BubbleTea*> m_OrderListVector;
@@ -93,16 +93,16 @@ public:
     BubbleTeaList()=default;
     
     //Constructor that shallow copies the order list
-    BubbleTeaList(vector<BubbleTea*> &BT_OL): m_OrderlistVector= BT_OL {}
+    BubbleTeaList(vector<BubbleTea*> &BT_OL): m_OrderListVector(BT_OL) {}
     
     //Implements delete BubbleTea objects
     virtual ~BubbleTeaList() =default;
     
     //Shallow Copy constructor
-    BubbleTeaList(const BubbleTeaList &): m_OrderListVector = rhs.m_OrderListVector {}
+    BubbleTeaList(const BubbleTeaList &rhs): m_OrderListVector(rhs.m_OrderListVector) {}
     
     //Assignment Operator which is NOT needed in the main.cpp file
-    BubbleTeaList & operator= (const BubbleTeaList &);
+    //BubbleTeaList & operator= (const BubbleTeaList &);
     
     //Get the size of the Order List Vector
     virtual int getOrderListSize() const {return m_OrderListVector.size();}
