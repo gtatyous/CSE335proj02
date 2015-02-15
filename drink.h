@@ -1,8 +1,29 @@
+/******************************************************
+** FILE: filename.cpp
+**
+** ABSTRACT:
+** A general description of the module's role in the
+** overall software architecture, What services it
+** provides and how it interacts with other components.
+**
+** DOCUMENTS:
+** A reference to the applicable design documents.
+**
+** AUTHOR:
+** Your name here
+**
+** CREATION DATE:
+** 14/03/1998
+**
+** NOTES:
+** Other relevant information
+*******************************************************/ 
+
 /* 
 * Team: Ian Bacus and Yousef Gtat
 * CSE335
 * Project01
-* Date: 02/05/2015
+* Date: 02/16/2015
 *
 *
 *
@@ -17,41 +38,44 @@ using std::string;
 
 
 class Drink {
-    protected:
-        int drink_size;
-        string customer_name;
+    private:
+        int m_drinkSize;
+        string m_customerName;
     public:
-        Drink (string name, int size) {customer_name = name; drink_size=size;}
-        virtual void confirmOrder() const = 0;
+        Drink()=default;
+        Drink (string name, int size) {m_customerName = name; m_drinkSize=size;}
         virtual ~Drink()=default;
-        virtual int get_size(){return drink_size;}
-        virtual string get_name(){return customer_name;}
+        string getCustomerName() const {return m_customerName;}
+        void setCustomerName(string n) {m_customerName = n;}
+        int getDrinkSize() const {return m_drinkSize;}
+        void setDrinkSize(int d) {m_drinkSize = d;}
+        virtual void confirmOrder() const = 0;
 };
 
 
 
 class BubbleTea : public Drink {
     private:
-        bool hot;
-        int bubble_size;                   
+        bool m_hot;
+        int m_bubbleSize;                   
     public:
         BubbleTea(string="Anonymous", int=1, bool=true, int=1);
+        ~BubbleTea()=default;
         BubbleTea (const BubbleTea &);
         BubbleTea & operator= (const BubbleTea &);
         virtual void confirmOrder() const;
-        ~BubbleTea()=default;
 };
 
 
 
 class OrangeJuice : public Drink {
     private:
-        bool pulp;               
+        bool m_pulp;               
     public:
         OrangeJuice(string="Anonymous", int=1, bool=false);
+        ~OrangeJuice()=default;
         OrangeJuice(const OrangeJuice &);
         OrangeJuice & operator= (const OrangeJuice &);
         virtual void confirmOrder () const;
-        ~OrangeJuice()=default;
 };
 #endif

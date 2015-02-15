@@ -1,3 +1,23 @@
+/******************************************************
+** FILE: filename.cpp
+**
+** ABSTRACT:
+** A general description of the module's role in the
+** overall software architecture, What services it
+** provides and how it interacts with other components.
+**
+** DOCUMENTS:
+** A reference to the applicable design documents.
+**
+** AUTHOR:
+** Your name here
+**
+** CREATION DATE:
+** 14/03/1998
+**
+** NOTES:
+** Other relevant information
+*******************************************************/ 
 /*
  * Team: Ian Bacus and Yousef Gtat
  * CSE335
@@ -17,6 +37,9 @@
 class Barista
 {
 public:
+	//Default Constructor
+	Barista()=default;
+	
     //Default destructor
     virtual ~Barista()=default;
     

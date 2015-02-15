@@ -1,7 +1,27 @@
+/******************************************************
+** FILE: filename.cpp
+**
+** ABSTRACT:
+** A general description of the module's role in the
+** overall software architecture, What services it
+** provides and how it interacts with other components.
+**
+** DOCUMENTS:
+** A reference to the applicable design documents.
+**
+** AUTHOR:
+** Your name here
+**
+** CREATION DATE:
+** 14/03/1998
+**
+** NOTES:
+** Other relevant information
+*******************************************************/ 
 /*
  * Team: Ian Bacus and Yousef Gtat
  * CSE335
- * Project01
+ * Project02
  * Date: 02/16/2015
  *
  *
@@ -12,75 +32,31 @@
 #include <map>
 using std::map;
 
-//Begin Barista Class Implementation
-
-
-//Deliver Drinks by name
-void Barista::deliverDrinks(OrderList &order_list_factory) const
+void print(vector<Drink*> &vec)
 {
-//	vector<Drink*> order_list_vector = orderfactory.getVector();
-//	display(order_list_vector);
-	std::map <std::string, vector< Drink* >  > sortmap;//this should be able to hold OJ objects or BT objects
-	while(order_list_factory.get_element(index) != nullptr) //perhaps test against size
+	for (auto ptr : vec)
 	{
-		//create an entry into the sorting map based on the sorting type
-		sortmap[order_list_factory.get_size(index)].push_back(order_list_factory.get_element(index));
-	}
-
-	//loop for printing objects. key is the size of the drink, value is a vector of drinks
-	for(auto kitr = sortmap.begin(); kitr != sortmap.end(); kitr++)
-	{
-		cout << "I have " << (kitr->second).size() << "drinks of size " << *kitr;
-		for( auto kvitr = (kitr->second).begin(); kvitr != (kitr->second).end(); kvitr++ )
-		{
-			(*kvitr).confirmOrder();
-		}
+		ptr->confirmOrder();
 	}
 }
 
+/////////////////////////////Begin Barista Class Implementation///////////////////////////
 
-/*
-void NewbieBarista::display() const
+// 
+void CoolBarista::deliverDrinks(OrderList &OrderList) const
 {
-	std::map <std::string, vector< Drink* >  > sortmap;
-	while(data != nullptr) //perhaps test against size
-	{
-		//create an entry into the sorting map based on the sorting type
-		sortmap[(*it).get_size()].push_back(*it);
-
-	}
-
-	//loop for printing objects. key is the size of the drink, value is a vector of drinks
-	for(auto kitr = sortmap.begin(); kitr != sortmap.end(); kitr++)
-	{
-		cout << "I have " << (kitr->second).size() << "drinks of size " << *kitr;
-		for( auto kvitr = (kitr->second).begin(); kvitr != (kitr->second).end(); kvitr++ )
-		{
-			(*kvitr).confirmOrder();
-		}
-	}
+// sort into a map
+// print the first statment like how many drinks and names
+// then 
+// print name and its orders using the print function above
 }
 
-*/
 
-void CoolBarista::deliverDrinks(OrderList &order_list_factory) const
+// 
+void NewBieBarista::deliverDrinks(OrderList &order_list_factory) const
 {
-//	vector<Drink*> order_list_vector = orderfactory.getVector();
-//	display(order_list_vector);
-	std::map <std::string, vector< Drink* >  > sortmap;//this should be able to hold OJ objects or BT objects
-	while(order_list_factory.get_element(index) != nullptr) //perhaps test against size
-	{
-		//create an entry into the sorting map based on the sorting type
-		sortmap[order_list_factory.get_name(index)].push_back(order_list_factory.get_element(index));
-	}
-
-	//loop for printing objects. key is the size of the drink, value is a vector of drinks
-	for(auto kitr = sortmap.begin(); kitr != sortmap.end(); kitr++)
-	{
-		cout << "I have " << (kitr->second).size() << "drinks of size " << *kitr;
-		for( auto kvitr = (kitr->second).begin(); kvitr != (kitr->second).end(); kvitr++ )
-		{
-			(*kvitr).confirmOrder();
-		}
-	}
+// sort into a map
+// print the first statment like how many drinks and names
+// then 
+// print name and its orders using the print function above
 }

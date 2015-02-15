@@ -1,3 +1,23 @@
+/******************************************************
+** FILE: filename.cpp
+**
+** ABSTRACT:
+** A general description of the module's role in the
+** overall software architecture, What services it
+** provides and how it interacts with other components.
+**
+** DOCUMENTS:
+** A reference to the applicable design documents.
+**
+** AUTHOR:
+** Your name here
+**
+** CREATION DATE:
+** 14/03/1998
+**
+** NOTES:
+** Other relevant information
+*******************************************************/ 
 /*
  * Team: Ian Bacus and Yousef Gtat
  * CSE335
@@ -17,24 +37,20 @@ using std::vector;
 
 
 //Abstract factory class
-class OrderList
+class AbstractOrderListFactory
 {
 public:
-    //Delet the Drink objects inside m_Drinks_list
-    virtual ~OrderList();
+	//Default constructor
+	AbstractOrderListFactory()=defalut;
+	
+    //Delete the Drink objects inside m_Drinks_list
+    virtual ~AbstractOrderListFactory();
     
-    //Get the customer name
-    //virtual string get_name(int)=0;
+    //Get the size of the Order List Vector
+    virtual int getOrderListSize() const =0;
     
-    //Get the drink size
-    //virtual int get_size(int)=0;
-    
-        //Get the customer name
-    virtual string get_name(int index) const=0;
-    //Get the drink size
-    virtual int get_size(int index) const =0;
-    virtual Drink* get_element(int);
-    
+    //Get the Drink object in the order list vector at certain index
+    virtual Drink* getDrinkObject (int index) const=0;    
 };
 
 
@@ -42,34 +58,28 @@ public:
 class OrangeJuiceOrderList : public OrderList
 {
 private:
-    vector<OrangeJuice*> m_OrderList_vector;
+    vector<OrangeJuice*> m_OrderListVector;
 public:
-    //In case nothing was passed
+    //Default constructor
     OrangeJuiceOrderList()=default;
     
-    //Initialize m_Drinks_list using the base class constructor
-    OrangeJuiceOrderList(vector<OrangeJuice*> &OJ_OL) {m_OrderList_vector=OJ_OL;}
+    //Constructor that shallow copies the order list
+    OrangeJuiceOrderList(vector<OrangeJuice*> &OJ_OL): m_OrderlistVector= OJ_OL {}
     
-    //Implements delete the OrangeJuice objects
-    virtual ~OrangeJuiceOrderList();
+    //Implements delete OrangeJuice objects
+    virtual ~OrangeJuiceOrderList()=default;
     
-    //Copy constructor which is needed in the main.cpp
-    OrangeJuiceOrderList(const OrangeJuiceOrderList &);
+    //Shallow Copy constructor
+    OrangeJuiceOrderList(const OrangeJuiceOrderList &): m_OrderListVector = rhs.m_OrderListVector {};
     
     //Assignment Operator which is NOT needed in the main.cpp file
     OrangeJuiceOrderList & operator= (const OrangeJuiceOrderList &);
     
-    //Virtual accessor function
-    virtual vector<OrangeJuice*> get_OrderList() {return m_OrderList_vector;}
+    //Get the size of the Order List Vector
+    virtual int getOrderListSize() const {return m_OrderListVector.size()};
     
-    virtual string get_name(unsigned int index) const {return m_OrderList_vector[index]->get_name();}
-
-    //Get the drink size
-    virtual int get_size(unsigned int index) const  {return m_OrderList_vector[index]->get_size();}
-    
-
-    virtual OrangeJuice* get_element(unsigned int) {return m_OrderList_vector[index]}
-
+    //Get the Drink object in the order list vector at certain index
+    virtual OrangeJuice* getDrinkObject (int index) const {return m_OrderListVector[index]};
 };
 
 
@@ -77,38 +87,28 @@ public:
 class BubbleTeaList : public OrderList
 {
 private:
-    vector<BubbleTea*> m_OrderList_vector;
+    vector<BubbleTea*> m_OrderListVector;
 public:
-    //In case nothing was passed
+    //Default constructor
     BubbleTeaList()=default;
     
-    //Initialize m_Drinks_list using the base class constructor
-    BubbleTeaList(vector<BubbleTea*> &BT_OL) {m_OrderList_vector=BT_OL;}
+    //Constructor that shallow copies the order list
+    BubbleTeaList(vector<BubbleTea*> &BT_OL): m_OrderlistVector= BT_OL {}
     
-    //Implements delete BubbleTea object
-    virtual ~BubbleTeaList();
+    //Implements delete BubbleTea objects
+    virtual ~BubbleTeaList() =default;
     
-    //Copy constructor which is needed for the main.cpp
-    BubbleTeaList(const BubbleTeaList &);
+    //Shallow Copy constructor
+    BubbleTeaList(const BubbleTeaList &): m_OrderListVector = rhs.m_OrderListVector {}
     
     //Assignment Operator which is NOT needed in the main.cpp file
     BubbleTeaList & operator= (const BubbleTeaList &);
     
-    //Virtual accessor function
-    virtual vector<BubbleTea*> get_OrderList() {return m_OrderList_vector;}
+    //Get the size of the Order List Vector
+    virtual int getOrderListSize() const {return m_OrderListVector.size();}
     
-    //Get the customer name
-  //  virtual string get_name(int index) {return m_OrderList_vector[index]->customer_name;}
-    
-        virtual string get_name(unsigned int index) const {return m_OrderList_vector[index]->get_name();}
-
-    //Get the drink size
-    virtual int get_size(unsigned int index) const  {return m_OrderList_vector[index]->get_size();}
-    
-    //Get the drink size
-  //  virtual int get_size(int index) {return m_OrderList_vector[index]->drink_size;}
-    virtual BubbleTea* get_element(unsigned int) {return m_OrderList_vector[index];}
-
+    //Get the Drink object in the order list vector at certain index
+    virtual Drink* getDrinkObject (int index) const {return m_OrderListVector[index];}
 };
 
 #endif
