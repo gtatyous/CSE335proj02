@@ -91,7 +91,7 @@ void BubbleTea::confirmOrder() const
 {
     cout << "\n" << getCustomerName() << " ordered a " << size(getDrinkSize())<< 
     ((m_hot)? " hot" : " warm")<< " drink of bubble tea with " << 
-    size(m_bubbleSize) << " bubbles" << endl;
+    size(m_bubbleSize) << " bubbles";
 }
 
 
@@ -130,5 +130,5 @@ void OrangeJuice::confirmOrder() const
 {
     cout << "\n" << getCustomerName() << " ordered a " << size(getDrinkSize()) <<
     " drink of Orange Juice with " <<
-    ( (m_pulp)? "pulp" : "no pulp" ) << endl;
+    ( (m_pulp)? "pulp" : "no pulp" );
 }

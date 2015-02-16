@@ -34,13 +34,14 @@
 using std::map;
 using std::cout;
 using std::endl;
-/*void print(vector<Drink*> &vec)
+
+void print(vector<Drink*> &vec)
 {
-	for (auto ptr : vec)
+    for (auto ptr : vec)
 	{
 		ptr->confirmOrder();
 	}
-}*/
+}
 
 /////////////////////////////Begin Barista Class Implementation///////////////////////////
 
@@ -59,10 +60,13 @@ void CoolBarista::deliverDrinks(AbstractOrderListFactory *OrderListPtr) const
     
     // sort map alphabatically
     
-    cout<< "Cool Barista: Order's up!";
-// print the first statment like how many drinks and names
-// then 
-// print name and its orders using the print function above
+    cout<< "Cool Barista: Order's up!"<<endl;
+    for (auto it=nameOrderListMap.begin(); it!=nameOrderListMap.end(); it++)
+    {
+        cout << "I have "<< it->second.size()<< " drinks for "<< it->first;
+        print(it->second);
+        cout<<endl<<endl;
+    }
 }
 
 
@@ -78,9 +82,16 @@ void NewbieBarista::deliverDrinks(AbstractOrderListFactory *OrderListPtr) const
         size = objectPtr->getDrinkSize();
         sizeOrderListMap[size].push_back(objectPtr);
     }
-    cout<< "Cool Barista: Order's up!";
-// sort into a map
-// print the first statment like how many drinks and names
-// then 
-// print name and its orders using the print function above
+    cout<< "Newbie Barista: Order's up!"<<endl;
+    
+    // sort map from 1 to 3
+    
+    for (auto it=sizeOrderListMap.begin(); it!=sizeOrderListMap.end(); it++)
+    {
+        cout << "I have "<< it->second.size()<< " drinks of size "<< it->first;
+        print(it->second);
+        cout<<endl<<endl;
+        
+    }
+    
 }
