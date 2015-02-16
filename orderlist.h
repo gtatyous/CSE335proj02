@@ -1,32 +1,25 @@
 /******************************************************
-** FILE: filename.cpp
-**
-** ABSTRACT:
-** A general description of the module's role in the
-** overall software architecture, What services it
-** provides and how it interacts with other components.
-**
-** DOCUMENTS:
-** A reference to the applicable design documents.
-**
-** AUTHOR:
-** Your name here
-**
-** CREATION DATE:
-** 14/03/1998
-**
-** NOTES:
-** Other relevant information
-*******************************************************/ 
-/*
- * Team: Ian Bacus and Yousef Gtat
- * CSE335
- * Project02
- * Date: 02/16/2015
- *
- *
- *
- */
+ ** FILE: barista.cpp
+ **
+ ** CLASS:
+ ** CSE335
+ **
+ ** PROJECT02
+ **
+ ** AUTHOR:
+ ** Ian Bacus and Yousef Gtat
+ **
+ ** CREATION DATE:
+ ** 02/16/2015
+ **
+ ** NOTES:
+ ** Note that  all  constructors are performing shallow
+ ** copy which  means  it is creating new pointers that
+ ** point to the  same  allocated memory. Deleting the
+ ** allocated memory is already have been taken care of
+ ** in the  main.cpp  file. As  a  result,  the default
+ ** destructors are sufficient to delete those pointers.
+ *******************************************************/
 
 #ifndef ORDERLIST_H_
 #define ORDERLIST_H_
@@ -43,7 +36,7 @@ public:
 	//Default constructor
 	AbstractOrderListFactory()=default;
 	
-    //Delete the Drink objects inside m_Drinks_list
+    //Default destructor
     virtual ~AbstractOrderListFactory()=default;
     
     //Get the size of the Order List Vector
@@ -63,17 +56,17 @@ public:
     //Default constructor
     OrangeJuiceOrderList()=default;
     
-    //Constructor that shallow copies the order list
+    //Shallow-Copy Constructor
     OrangeJuiceOrderList(vector<OrangeJuice*> &OJ_OL): m_OrderListVector(OJ_OL) {}
     
-    //Implements delete OrangeJuice objects
+    //Default Destructor
     virtual ~OrangeJuiceOrderList()=default;
     
-    //Shallow Copy constructor
+    //Shallow-Copy Copy Constructor
     OrangeJuiceOrderList(const OrangeJuiceOrderList &rhs): m_OrderListVector(rhs.m_OrderListVector){}
     
     //Assignment Operator which is NOT needed in the main.cpp file
-    //OrangeJuiceOrderList & operator= (const OrangeJuiceOrderList &);
+    OrangeJuiceOrderList & operator= (const OrangeJuiceOrderList &);
     
     //Get the size of the Order List Vector
     virtual int getOrderListSize() const {return m_OrderListVector.size();}
@@ -92,17 +85,17 @@ public:
     //Default constructor
     BubbleTeaList()=default;
     
-    //Constructor that shallow copies the order list
+    //Shallow-Copy Constructor
     BubbleTeaList(vector<BubbleTea*> &BT_OL): m_OrderListVector(BT_OL) {}
     
     //Implements delete BubbleTea objects
     virtual ~BubbleTeaList() =default;
     
-    //Shallow Copy constructor
+    //Shallow-Copy Copy Constructor
     BubbleTeaList(const BubbleTeaList &rhs): m_OrderListVector(rhs.m_OrderListVector) {}
     
     //Assignment Operator which is NOT needed in the main.cpp file
-    //BubbleTeaList & operator= (const BubbleTeaList &);
+    BubbleTeaList & operator= (const BubbleTeaList &);
     
     //Get the size of the Order List Vector
     virtual int getOrderListSize() const {return m_OrderListVector.size();}

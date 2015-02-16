@@ -1,34 +1,22 @@
 /******************************************************
-** FILE: filename.cpp
-**
-** ABSTRACT:
-** A general description of the module's role in the
-** overall software architecture, What services it
-** provides and how it interacts with other components.
-**
-** DOCUMENTS:
-** A reference to the applicable design documents.
-**
-** AUTHOR:
-** Your name here
-**
-** CREATION DATE:
-** 14/03/1998
-**
-** NOTES:
-** Other relevant information
-*******************************************************/ 
-
-/* 
-* Team: Ian Bacus and Yousef Gtat
-* CSE335
-* Project01
-* Date: 02/16/2015
-*
-*
-*
-*/
-
+ ** FILE: drink.cpp
+ **
+ ** CLASS:
+ ** CSE335
+ **
+ ** PROJECT02
+ **
+ ** AUTHOR:
+ ** Ian Bacus and Yousef Gtat
+ **
+ ** CREATION DATE:
+ ** 02/16/2015
+ **
+ ** NOTES:
+ ** Implementation of the drink class is different from
+ ** the previous project. It includes full use base class 
+ ** constructor and accessors of its private members.
+ *******************************************************/
 
 #include "drink.h"
 #include <iostream>

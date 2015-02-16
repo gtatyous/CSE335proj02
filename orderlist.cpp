@@ -1,43 +1,32 @@
 /******************************************************
-** FILE: filename.cpp
-**
-** ABSTRACT:
-** A general description of the module's role in the
-** overall software architecture, What services it
-** provides and how it interacts with other components.
-**
-** DOCUMENTS:
-** A reference to the applicable design documents.
-**
-** AUTHOR:
-** Your name here
-**
-** CREATION DATE:
-** 14/03/1998
-**
-** NOTES:
-** Other relevant information
-*******************************************************/ 
-/*
- * Team: Ian Bacus and Yousef Gtat
- * CSE335
- * Project02
- * Date: 02/16/2015
- *
- *
- *
- */
-
+ ** FILE: barista.cpp
+ **
+ ** CLASS:
+ ** CSE335
+ **
+ ** PROJECT02
+ **
+ ** AUTHOR:
+ ** Ian Bacus and Yousef Gtat
+ **
+ ** CREATION DATE:
+ ** 02/16/2015
+ **
+ ** NOTES:
+ ** The assignment operator is not needed in the main.cpp
+ ** file. However, by the rule three, it is implemented
+ ** here just in case if it might be utilized in the future.
+ *******************************************************/
 
 #include "orderlist.h"
 
 
 //////////////////////Begin OrangeJuiceOrderList Class Implementation/////////////////////
-/*
+
 //Assignment Operator (Not Required)
 OrangeJuiceOrderList & OrangeJuiceOrderList::operator= (const OrangeJuiceOrderList &rhs)
 {
-    if (this != rhs)
+    if (this != &rhs)
     {
         m_OrderListVector = rhs.m_OrderListVector;
     }
@@ -52,10 +41,10 @@ OrangeJuiceOrderList & OrangeJuiceOrderList::operator= (const OrangeJuiceOrderLi
 //Assignment Operator
 BubbleTeaList & BubbleTeaList::operator= (const BubbleTeaList &rhs)
 {
-    if (this != rhs)
+    if (this != &rhs)
     {
         m_OrderListVector = rhs.m_OrderListVector;
     }
     return *this;
 }
-*/
+

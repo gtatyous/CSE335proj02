@@ -1,32 +1,20 @@
 /******************************************************
-** FILE: filename.cpp
+** FILE: barista.cpp
 **
-** ABSTRACT:
-** A general description of the module's role in the
-** overall software architecture, What services it
-** provides and how it interacts with other components.
+** CLASS:
+** CSE335
 **
-** DOCUMENTS:
-** A reference to the applicable design documents.
+** PROJECT02
 **
 ** AUTHOR:
-** Your name here
+** Ian Bacus and Yousef Gtat
 **
 ** CREATION DATE:
-** 14/03/1998
+** 02/16/2015
 **
 ** NOTES:
-** Other relevant information
-*******************************************************/ 
-/*
- * Team: Ian Bacus and Yousef Gtat
- * CSE335
- * Project02
- * Date: 02/16/2015
- *
- *
- *
- */
+** N/A
+*******************************************************/
 
 #include "barista.h"
 #include <iostream>
