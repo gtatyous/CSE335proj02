@@ -41,6 +41,7 @@ void print(vector<Drink*> &vec)
 	{
 		ptr->confirmOrder();
 	}
+    cout<<endl<<endl;
 }
 
 /////////////////////////////Begin Barista Class Implementation///////////////////////////
@@ -65,7 +66,6 @@ void CoolBarista::deliverDrinks(AbstractOrderListFactory *OrderListPtr) const
     {
         cout << "I have "<< it->second.size()<< " drinks for "<< it->first;
         print(it->second);
-        cout<<endl<<endl;
     }
 }
 
@@ -90,7 +90,6 @@ void NewbieBarista::deliverDrinks(AbstractOrderListFactory *OrderListPtr) const
     {
         cout << "I have "<< it->second.size()<< " drinks of size "<< it->first;
         print(it->second);
-        cout<<endl<<endl;
         
     }
     
