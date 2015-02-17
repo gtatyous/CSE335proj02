@@ -24,6 +24,7 @@ using std::cout;
 using std::endl;
 
 void print(vector<Drink*> &vec)
+//external subroutine for printing out the contents of vectors stored in the maps
 {
     for (auto ptr : vec)
 	{
@@ -40,6 +41,10 @@ void CoolBarista::deliverDrinks(AbstractOrderListFactory *OrderListPtr) const
     map<string, vector<Drink*>> nameOrderListMap;
     Drink* objectPtr;
     string name;
+    
+    //This segment of code will index different elements in the concrete Orderlist through overridden virtual accessors methods
+    //Name entries are stored as keys in a map. The values of this map are vectors of Drink*. This allows vectors of drinks in the order to be 
+    // binned by the name of the drink orderer.
     for (int i=0; i<OrderListPtr->getOrderListSize(); i++)
     {
         objectPtr = OrderListPtr->getDrinkObject(i);
@@ -64,6 +69,10 @@ void NewbieBarista::deliverDrinks(AbstractOrderListFactory *OrderListPtr) const
     map<int, vector<Drink*>> sizeOrderListMap;
     Drink* objectPtr;
     int size;
+    
+    //This segment of code will index different elements in the concrete Orderlist through overridden virtual accessors methods
+    //Size entries are stored as keys in a map. The values of this map are vectors of Drink*. This allows vectors of drinks in the order to be 
+    // binned by the drink size of each object in the order.
     for (int i=0; i<OrderListPtr->getOrderListSize(); i++)
     {
         objectPtr = OrderListPtr->getDrinkObject(i);
