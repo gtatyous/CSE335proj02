@@ -47,7 +47,7 @@ void CoolBarista::deliverDrinks(AbstractOrderListFactory *OrderListPtr) const
         nameOrderListMap[name].push_back(objectPtr);
     }
     
-    // sort map alphabatically
+//Internally, the elements in a map are always sorted by its key
     
     cout<< "Cool Barista: Order's up!"<<endl;
     for (auto it=nameOrderListMap.begin(); it!=nameOrderListMap.end(); it++)
@@ -72,7 +72,7 @@ void NewbieBarista::deliverDrinks(AbstractOrderListFactory *OrderListPtr) const
     }
     cout<< "Newbie Barista: Order's up!"<<endl;
     
-    // sort map from 1 to 3
+//Internally, the elements in a map are always sorted by its key
     
     for (auto it=sizeOrderListMap.begin(); it!=sizeOrderListMap.end(); it++)
     {
