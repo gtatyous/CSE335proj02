@@ -1,15 +1,15 @@
 proj02
 
-All code written by Yousef Gtat and Ian Bacus Responsibilities:
+All code written by A and Ian Bacus Responsibilities:
 
 
 Ian: drew the UML diagram, wrote the barista class and deliverOrder implementations, and wrote the printing algorithm for the orderlist vectors.
 
-Yousef: wrote the AbstractOrderListFactory class and designed its interface, and edited the previous drink class to match this project needs.
+A: wrote the AbstractOrderListFactory class and designed its interface, and edited the previous drink class to match this project needs.
 
 Both students: designed the class hierarchy to match the abstract factory pattern. Both debugged and cleaned up the code to aviod crashes.
 
-NETIDs: Yousef Gtat: gtatyous Ian Bacus: bacusian
+NETIDs: 
 
 EVERYTHING WORKS. To extend the barista class, a new concrete barista could be created. They would not require any additional code in the existing classes to implement a new deliverOrder algorithm.
 
